@@ -1,0 +1,23 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+<table>
+    <thead>
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+        </tr>
+    </thead>
+    <tbody>
+	<tr th:if="${photos.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="photo : ${photos}">
+            <td><span th:text="${photo.title}"> </span></td>
+            <td><img alt="sample" th:src="*{'data:image/png;base64,'+photo.image}" width="200"/></td>
+        </tr>
+    </tbody>
+</table>	
+	<br/> <br/>
+	<a href="/">Back to home page</a>	
+</body>
+</html>
